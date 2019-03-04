@@ -1,0 +1,18 @@
+before doing fastai import (after enabling gpu acceleration):
+
+!pip3 install fastai
+!apt-get -qq install -y libsm6 libxext6 && pip install -q -U opencv-python
+import cv2
+from os import path
+from wheel.pep425tags import get_abbr_impl, get_impl_ver, get_abi_tag
+platform = '{}{}-{}'.format(get_abbr_impl(), get_impl_ver(), get_abi_tag())
+accelerator = 'cu80' if path.exists('/opt/bin/nvidia-smi') else 'cpu'
+!pip3 install http://download.pytorch.org/whl/cpu/torch-0.4.1-cp36-cp36m-linux_x86_64.whl
+
+import torch
+!pip install Pillow==4.1.1
+!pip install image
+%matplotlib inline
+
+
+-> restart environment
